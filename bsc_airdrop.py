@@ -183,7 +183,7 @@ if __name__ == "__main__":
         amount_raw = int(amount2send * (10 ** token_dec))
         send2address = record[0]
         print("[tx",ix,"] Sending", '{:,.6f}'.format(amount2send), token_sym, "  to: ", send2address,"...")
-        result = send_tokens(contract, dist_wallet, send2address, amount_raw, DIST_KEY) #send_tokens(token_contract, sender, recipient, amount, private_key):
+        result = send_tokens(contract, dist_wallet, send2address, amount_raw, DIST_KEY) 
         print("TX hash: ", result.hex())
 
         #log it
