@@ -132,13 +132,13 @@ if __name__ == "__main__":
 
   # get DISTRIBUTION WALLET's BNB balance
   wei_balance = web3.eth.get_balance(dist_wallet)
-  bnb_balance = wei_balance / 1000000000000000000
+  bnb_balance = wei_balance / (10 ** 18)
   print("Distribution wallet address: ", dist_wallet)
   print("BNB balance: ", wei_balance, "wei    [",'{:,.6f}'.format(bnb_balance)," BNB ]")
 
   # get DISTRIBUTION WALLET's token balance
   token_raw_balance = contract.functions.balanceOf(dist_wallet).call()
-  token_balance = token_raw_balance // (10 ** token_dec)
+  token_balance = token_raw_balance / (10 ** token_dec)
   print("Token balance: ", token_raw_balance, "raw    [",'{:,.6f}'.format(token_balance)," ",token_sym," ]")
   print("------------------------------------------------")
 
@@ -195,6 +195,4 @@ if __name__ == "__main__":
 
         time.sleep(tx_sleep_time) 
     ix = ix + 1   
-  
-
-
+ 
